@@ -6,7 +6,11 @@ le = LabelEncoder()
 ###origine
 ###df = pd.read_csv("data/train.csv", sep=';', encoding='utf-8') #En cas d'erreur essayez avec d'autres encodings
 #mien
-df = pd.read_csv("data/stcs_type_50_50.csv", sep=',', encoding='utf-8') #En cas d'erreur essayez avec d'autres encodings
+#que type 1 bioaggresseurs & type 2 maladies
+#df = pd.read_csv("data/stcs_type_50_50.csv", sep=',', encoding='utf-8') 
+# type 1, 2 + 0 : skos:definitions de FrenchCropUsage
+df = pd.read_csv("data/stcs_type_50_50_2701-2900.csv", sep=',', encoding='utf-8') 
+
 
 # Crée les DataFrames train et dev dont BERT aura besoin, en ventillant 1 % des données dans test
 ###df_bert = pd.DataFrame({'user_id':df['ID'], 'label':le.fit_transform(df['Label']), 'alpha':['a']*df.shape[0], 'text':df['texte'].replace(r'\n',' ',regex=True)})
@@ -20,7 +24,10 @@ df_bert_train, df_bert_dev = train_test_split(df_bert, test_size=0.01)
 # Crée la DataFrame test dont BERT aura besoin
 ###df_test = pd.read_csv("data/test.csv", sep=';', encoding='utf-8') #En cas d'erreur essayez avec d'autres encodings
 #mien
-df_test = pd.read_csv("data/stcs_type_50_50_test.csv", sep=',', encoding='utf-8')
+#que type 1 bioaggresseurs & type 2 maladies
+#df_test = pd.read_csv("data/stcs_type_50_50_test.csv", sep=',', encoding='utf-8')
+# type 1, 2 + 0 : skos:definitions de FrenchCropUsage
+df_test = pd.read_csv("data/stcs_type_50_50_2901-3000.csv", sep=',', encoding='utf-8')
 
 ###df_bert_test = pd.DataFrame({'user_id':df_test['ID'], 'text':df_test['texte'].replace(r'\n',' ',regex=True)})
 #mien
