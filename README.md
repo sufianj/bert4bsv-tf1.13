@@ -1,4 +1,4 @@
-# Utiliser BERT pour classifer les phrases extraites des BSV
+# Utiliser BERT pour classifer les phrases extraites des BSV (multi-class, not multi-label)
 
 ### Tuto utilisé:  
 https://lesdieuxducode.com/blog/2019/4/bert--le-transformer-model-qui-sentraine-et-qui-represente
